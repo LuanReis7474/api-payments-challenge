@@ -13,7 +13,7 @@ Route::controller(ProjectController::class)
     ->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/novo', 'create')->name('create'); 
-        Route::post('/', 'store')->name('store');      
+        Route::post('/', 'store')->name('store');    
     });
 
 Route::controller(ExpenseController::class)
@@ -23,6 +23,7 @@ Route::controller(ExpenseController::class)
         Route::get('/', 'index')->name('index');
         Route::get('/novo', 'create')->name('create'); 
         Route::post('/', 'store')->name('store');      
+        
     });
 
 Route::controller(SupplierController::class)

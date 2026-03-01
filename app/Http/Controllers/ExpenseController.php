@@ -26,6 +26,7 @@ class ExpenseController extends Controller
         return view('expenses.create', compact('project', 'suppliers'));
     }
 
+
     public function store(Request $request, Project $project)
     {
        if ($request->filled('supplier_id')) {

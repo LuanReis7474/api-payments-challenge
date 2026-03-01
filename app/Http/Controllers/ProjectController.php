@@ -22,6 +22,11 @@ class ProjectController extends Controller
         return view('projects.create');
     }
 
+    public function update(): View
+    {
+        return view('projects.update');
+    }
+
     public function store(Request $request)
     {
         $validatedData = $request->validate([

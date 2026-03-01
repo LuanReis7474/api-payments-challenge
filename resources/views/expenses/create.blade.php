@@ -2,13 +2,14 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Novo Gasto - {{ $project->name }}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-gray-100 p-8 antialiased">
+<body class="bg-gray-100 p-4 sm:p-8 antialiased">
 
-    <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md">
-        
+    <div class="max-w-2xl mx-auto bg-white p-5 sm:p-8 rounded-lg shadow-md">
+
         <div class="mb-6 border-b pb-4">
             <h1 class="text-2xl font-bold text-gray-800">Cadastrar Novo Gasto</h1>
             <p class="text-gray-500 text-sm mt-1">Projeto: <span class="font-semibold text-gray-700">{{ $project->name }}</span></p>
@@ -74,9 +75,6 @@
                     </div>
                 </div>
 
-                
-                
-
                 <div class="md:col-span-2">
                     <label for="category" class="block text-sm font-medium text-gray-700">Categoria</label>
                     <select name="category" id="category" 
@@ -118,14 +116,7 @@
                         <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                     @enderror
                 </div>
-
-               
             </div>
-                
-            
-            
-                
-           
 
             <div>
                 <label for="description" class="block text-sm font-medium text-gray-700">Descrição Detalhada</label>
@@ -137,11 +128,11 @@
                 @enderror
             </div>
 
-            <div class="flex justify-end gap-3 pt-4 border-t border-gray-200">
-                <a href="{{ route('expenses.index', $project->id) }}" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded-md transition-colors text-sm font-medium">
+            <div class="flex flex-col-reverse sm:flex-row justify-end gap-3 pt-4 border-t border-gray-200">
+                <a href="{{ route('expenses.index', $project->id) }}" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded-md transition-colors text-sm font-medium text-center">
                     Cancelar
                 </a>
-                <button type="submit" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors text-sm font-medium">
+                <button type="submit" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors text-sm font-medium text-center">
                     Salvar Gasto
                 </button>
             </div>
