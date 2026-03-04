@@ -22,7 +22,9 @@ class ExpenseController extends Controller
 
     public function create(Project $project): View
     {
-        $suppliers = Supplier::orderBy('name')->get();
+        $suppliers = Supplier::where('session_id', session()->getId())
+            ->orderBy('name')
+            ->get();
         return view('expenses.create', compact('project', 'suppliers'));
     }
 
