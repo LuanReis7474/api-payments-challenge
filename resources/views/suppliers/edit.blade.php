@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Novo Fornecedor')
+@section('title', 'Editar Fornecedor')
 
 @section('content')
     <div class="mt-5 max-w-2xl mx-auto bg-white p-4 sm:p-8 rounded-lg shadow-md">
@@ -10,9 +10,9 @@
             <p class="text-gray-500 text-sm mt-1">Adicione um novo parceiro ou prestador de serviço ao catálogo global.</p>
         </div>
 
-        <form action="{{ route('suppliers.store') }}" method="POST" class="space-y-6">
+        <form action="{{ route('suppliers.update', $supplier->id) }}" method="POST" class="space-y-6">
             @csrf
-
+            @method('PUT')
             @include('suppliers.partials._form')
 
 

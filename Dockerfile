@@ -1,5 +1,5 @@
 # ---------------------------------------------------
-# Definição de configuração para ambiente docker de execução do projeto
+# configuração para ambiente docker de execução do projeto
 # ---------------------------------------------------
 
 FROM php:8.2-apache 

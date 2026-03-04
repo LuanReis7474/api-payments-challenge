@@ -21,7 +21,7 @@ class Expense extends Model
         'project_id',
         'supplier_id',
         'tax'
-    ];  
+    ];
 
     public function project(): BelongsTo
     {
@@ -32,6 +32,4 @@ class Expense extends Model
     {
         return $this->belongsTo(related: Supplier::class);
     }
-
-   
 }

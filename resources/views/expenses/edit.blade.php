@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Gastos')
+@section('title', 'Editar Gastos')
 
 @section('content')
     <div class="mt-5 max-w-2xl mx-auto bg-white p-5 sm:p-8 rounded-lg shadow-md">
@@ -11,9 +11,10 @@
                     class="font-semibold text-gray-700">{{ $project->name }}</span></p>
         </div>
 
-        <form action="{{ route('expenses.store', $project->id) }}" method="POST" class="space-y-6" x-data="{ supplierId: '{{ old('supplier_id') }}' }">
+        <form action="{{ route('expenses.update', [$project->id, $expense->id]) }}" method="POST" class="space-y-6"
+            x-data="{ supplierId: '{{ old('supplier_id', $expense->supplier_id ?? '') }}' }">
             @csrf
-
+            @method('PUT')
             @include('expenses.partials._form')
 
             <div class="flex flex-col-reverse sm:flex-row justify-end gap-3 pt-4 border-t border-gray-200">

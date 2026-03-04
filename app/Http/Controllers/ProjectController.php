@@ -12,9 +12,9 @@ class ProjectController extends Controller
     public function index(ProjectService $projectService): View
     {
         $projects = Project::where('session_id', session()->getId())
-                           ->orderBy('created_at', 'desc')
-                           ->paginate(5);
-        return view('projects.index', compact('projects', 'projectService')); 
+            ->orderBy('created_at', 'desc')
+            ->paginate(5);
+        return view('projects.index', compact('projects', 'projectService'));
     }
 
     public function create(): View
@@ -22,9 +22,39 @@ class ProjectController extends Controller
         return view('projects.create');
     }
 
-    public function update(): View
+    public function edit($id): View
     {
-        return view('projects.update');
+        $project = Project::findOrFail($id);
+
+        return view('projects.edit', compact('project'));
+    }
+
+    public function destroy($id)
+    {
+        $project = Project::findOrFail($id);
+        $project->expenses()->delete();
+        $project->delete();
+
+        return redirect()->route('projects.index')->with('success', 'Projeto excluído com sucesso!');
+    }
+
+    public function update(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'name'         => 'required|string|max:255',
+            'type'         => 'required|string|max:100',
+            'description'  => 'nullable|string',
+            'total_budget' => 'required|numeric|min:0',
+        ], [
+            'name.required' => 'O campo nome é obrigatório.',
+            'total_budget.numeric' => 'O orçamento deve ser um valor numérico.'
+        ]);
+
+        $project = Project::findOrFail($id);
+
+        $project->update($validatedData);
+
+        return redirect()->route('projects.index')->with('success', 'Projeto cadastrado com sucesso!');
     }
 
     public function store(Request $request)
@@ -33,7 +63,7 @@ class ProjectController extends Controller
             'name'         => 'required|string|max:255',
             'type'         => 'required|string|max:100',
             'description'  => 'nullable|string',
-            'total_budget' => 'required|numeric|min:0', 
+            'total_budget' => 'required|numeric|min:0',
         ], [
             'name.required' => 'O campo nome é obrigatório.',
             'total_budget.numeric' => 'O orçamento deve ser um valor numérico.'
@@ -42,7 +72,7 @@ class ProjectController extends Controller
         $validatedData['session_id'] = session()->getId();
 
         Project::create($validatedData);
-        
+
         return redirect()->route('projects.index')->with('success', 'Projeto cadastrado com sucesso!');
     }
 }

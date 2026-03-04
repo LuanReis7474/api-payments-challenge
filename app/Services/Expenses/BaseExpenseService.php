@@ -7,15 +7,15 @@ use App\Models\Expense;
 
 class BaseExpenseService implements ExpenseInterface
 {
- 
+
     public function getFinalAmount(Expense $expense): float
     {
-        return $expense->value;   
+        return $expense->value;
     }
 
     public function getSummary(Expense $expense): string
     {
-        return 'Despesa de R$'.number_format($expense->value,2,',','.').' para o projeto '.$expense->project->name;
+        return 'Despesa de R$' . number_format($expense->value, 2, ',', '.') . ' para o projeto ' . $expense->project->name;
     }
 
     public function getTaxAmount(Expense $expense): float

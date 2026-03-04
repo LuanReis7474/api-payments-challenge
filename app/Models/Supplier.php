@@ -16,7 +16,7 @@ class Supplier extends Model
         'cnpj',
     ];
 
-    public function expenses() : HasMany
+    public function expenses(): HasMany
     {
         return $this->hasMany(related: Expense::class);
     }

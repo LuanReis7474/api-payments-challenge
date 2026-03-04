@@ -12,8 +12,13 @@ Route::controller(ProjectController::class)
     ->name('projects.')
     ->group(function () {
         Route::get('/', 'index')->name('index');
-        Route::get('/novo', 'create')->name('create'); 
-        Route::post('/', 'store')->name('store');    
+        Route::get('/novo', 'create')->name('create');
+        Route::post('/', 'store')->name('store');
+
+        Route::get('/{id}/editar', 'edit')->name('edit');
+        Route::put('/{id}', 'update')->name('update');
+
+        Route::delete('/{id}', 'destroy')->name('destroy');
     });
 
 Route::controller(ExpenseController::class)
@@ -21,9 +26,13 @@ Route::controller(ExpenseController::class)
     ->name('expenses.')
     ->group(function () {
         Route::get('/', 'index')->name('index');
-        Route::get('/novo', 'create')->name('create'); 
-        Route::post('/', 'store')->name('store');      
-        
+        Route::get('/novo', 'create')->name('create');
+        Route::post('/', 'store')->name('store');
+
+        Route::get('/{id}/editar', 'edit')->name('edit');
+        Route::put('/{id}', 'update')->name('update');
+
+        Route::delete('/{id}', 'destroy')->name('destroy');
     });
 
 Route::controller(SupplierController::class)
@@ -33,4 +42,9 @@ Route::controller(SupplierController::class)
         Route::get('/', 'index')->name('index');
         Route::get('/novo', 'create')->name('create');
         Route::post('/', 'store')->name('store');
+
+        Route::get('/{id}/editar', 'edit')->name('edit');
+        Route::put('/{id}', 'update')->name('update');
+
+        Route::delete('/{id}', 'destroy')->name('destroy');
     });

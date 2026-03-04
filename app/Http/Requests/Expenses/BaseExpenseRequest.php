@@ -22,4 +22,3 @@ class BaseExpenseRequest extends FormRequest
         ];
     }
 }
-

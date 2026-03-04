@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Project extends Model
 {
     use HasFactory;
-    
+
     protected $fillable = [
         'name',
         'session_id',
@@ -18,7 +18,7 @@ class Project extends Model
         'description'
     ];
 
-    public function expenses() : HasMany
+    public function expenses(): HasMany
     {
         return $this->hasMany(related: Expense::class);
     }

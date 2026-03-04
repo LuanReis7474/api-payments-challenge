@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Interfaces;
+
 use App\Models\Expense;
 
 interface ExpenseInterface
