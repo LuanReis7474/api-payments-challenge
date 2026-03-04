@@ -30,8 +30,11 @@ class ExpenseController extends Controller
 
     public function edit(Project $project, $id)
     {
+        $sessionId = session()->getId();
         $expense = Expense::findOrFail($id);
-        $suppliers = Supplier::orderBy('name')->get();
+        $suppliers = Supplier::where('session_id', $sessionId)
+            ->orderBy('name')
+            ->get();
         return view('expenses.edit', compact('project', 'expense', 'suppliers'));
     }
 
