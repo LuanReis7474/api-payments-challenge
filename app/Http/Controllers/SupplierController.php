@@ -13,8 +13,9 @@ class SupplierController extends Controller
     {
         $suppliers = Supplier::where(
             'session_id',
-            session('session_id')
+            session()->getId()
         )->orderBy('created_at', 'desc')->paginate(5);
+
         return view('suppliers.index', compact('suppliers'));
     }
 
@@ -63,7 +64,7 @@ class SupplierController extends Controller
             'name.required' => 'O campo nome é obrigatório.'
         ]);
 
-        $validatedData['session_id'] = session('session_id');
+        $validatedData['session_id'] = session()->getId();
         Supplier::create($validatedData);
 
         return redirect()->route('suppliers.index')->with('success', 'Fornecedor cadastrado com sucesso!');

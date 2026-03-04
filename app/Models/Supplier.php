@@ -14,6 +14,7 @@ class Supplier extends Model
         'name',
         'phone',
         'cnpj',
+        'session_id',
     ];
 
     public function expenses(): HasMany
