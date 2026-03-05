@@ -3,7 +3,7 @@ Este projeto é uma plataforma de controle financeiro  para gerenciamento de pro
 
 Esta hospedado em: https://sistema-gestao-projetos-ppqz.onrender.com/projetos
 
-!(https://img.shields.io/github/actions/workflow/status/LuanReis7474/sistema-gestao-projetos/tests.yml?branch=main&style=for-the-badge&logo=github&label=Build%20Status)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/LuanReis7474/sistema-gestao-projetos/test.yml?branch=main&style=for-the-badge&logo=github&label=Build%20Status)
 ![Laravel Version](https://img.shields.io/badge/Laravel-12.0-FF2D20?style=for-the-badge&logo=laravel)
 ![PHP Version](https://img.shields.io/badge/PHP-8.2%2B-777BB4?style=for-the-badge&logo=php)
 ![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=black)
