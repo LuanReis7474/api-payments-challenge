@@ -46,3 +46,20 @@ para rodar os testes localmente:
 php artisan test --filter FlowTest
 ```
 🔗 **[Acessar a Documentação Interativa no Swagger](https://app.swaggerhub.com/apis-docs/LuanReisDeCarvalho/managerProject/1.0.0)**
+
+<img width="1219" height="541" alt="image" src="https://github.com/user-attachments/assets/b1587337-a42c-4458-bb34-5cea479c8009" />
+
+<img width="1206" height="334" alt="image" src="https://github.com/user-attachments/assets/d1bce906-52ce-4fde-be26-2dcd3d239488" />
+
+<img width="771" height="424" alt="image" src="https://github.com/user-attachments/assets/edcdd556-e3a6-43ce-8840-f1eacf09f9ee" />
+
+<img width="1215" height="304" alt="image" src="https://github.com/user-attachments/assets/ec6511fe-3001-46e0-b64d-be772609fc71" />
+
+<img width="717" height="642" alt="image" src="https://github.com/user-attachments/assets/40d9cb01-6413-4b77-aa7c-28c6d5c53dbe" />
+
+
+
+
+
+
+
