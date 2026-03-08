@@ -207,7 +207,7 @@
 
     <div x-data="{ show: false }" @toast-sucesso.window="show = true; setTimeout(() => show = false, 3000)" x-show="show"
         x-transition.opacity.duration.300ms
-        class="fixed z-50 bottom-4 left-4 right-4 sm:left-auto sm:right-5 sm:bottom-5 flex items-center sm:max-w-xs p-4 space-x-3 text-gray-500 bg-white rounded-lg shadow-xl border border-gray-100"
+        class="fixed z-[9999] inset-x-0 bottom-5 mx-auto w-[92%] max-w-sm sm:w-auto sm:inset-x-auto sm:right-5 flex items-center p-4 space-x-3 text-gray-500 bg-white rounded-lg shadow-2xl border border-gray-200"
         style="display: none;" role="alert">
 
         <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg">
@@ -221,7 +221,7 @@
 
     <div x-data="{ show: false }" @toast-delete-sucesso.window="show = true; setTimeout(() => show = false, 3000)"
         x-show="show" x-transition.opacity.duration.300ms
-        class="fixed z-50 bottom-4 left-4 right-4 sm:left-auto sm:right-5 sm:bottom-5 flex items-center sm:max-w-xs p-4 space-x-3 text-gray-500 bg-white rounded-lg shadow-xl border border-gray-100"
+        class="fixed z-[9999] inset-x-0 bottom-5 mx-auto w-[92%] max-w-sm sm:w-auto sm:inset-x-auto sm:right-5 flex items-center p-4 space-x-3 text-gray-500 bg-white rounded-lg shadow-2xl border border-gray-200"
         style="display: none;" role="alert">
 
         <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg">
