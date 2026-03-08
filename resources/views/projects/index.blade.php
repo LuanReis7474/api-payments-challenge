@@ -137,9 +137,9 @@
                                     }">
 
                                     <label
-                                        class="inline-flex items-center cursor-pointer select-none touch-manipulation py-3 px-2">
+                                        class="relative inline-flex items-center cursor-pointer select-none touch-manipulation py-3 px-2">
                                         <input type="checkbox" x-model="isAtivo" @change="toggleStatus"
-                                            class="sr-only peer">
+                                            class="absolute opacity-0 w-0 h-0 peer">
 
                                         <div
                                             class="relative w-11 h-6 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600">
@@ -205,34 +205,39 @@
         {{ $projects->links() }}
     </div>
 
-    <div x-data="{ show: false }" @toast-sucesso.window="show = true; setTimeout(() => show = false, 3000)" x-show="show"
-        x-transition.opacity.duration.300ms
-        class="fixed z-[9999] inset-x-0 bottom-5 mx-auto w-[92%] max-w-sm sm:w-auto sm:inset-x-auto sm:right-5 flex items-center p-4 space-x-3 text-gray-500 bg-white rounded-lg shadow-2xl border border-gray-200"
-        style="display: none;" role="alert">
 
-        <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path
-                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
-            </svg>
-        </div>
-        <div class="ml-3 text-sm font-normal">Status atualizado com sucesso.</div>
-    </div>
 
-    <div x-data="{ show: false }" @toast-delete-sucesso.window="show = true; setTimeout(() => show = false, 3000)"
-        x-show="show" x-transition.opacity.duration.300ms
-        class="fixed z-[9999] inset-x-0 bottom-5 mx-auto w-[92%] max-w-sm sm:w-auto sm:inset-x-auto sm:right-5 flex items-center p-4 space-x-3 text-gray-500 bg-white rounded-lg shadow-2xl border border-gray-200"
-        style="display: none;" role="alert">
-
-        <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path
-                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
-            </svg>
-        </div>
-        <div class="ml-3 text-sm font-normal">Projeto apagado com sucesso.</div>
-    </div>
 @endsection
+<div x-data="{ show: false }" @toast-sucesso.window="show = true; setTimeout(() => show = false, 3000)" x-show="show"
+    x-transition.opacity.duration.300ms
+    class="fixed z-[9999] inset-x-0 bottom-5 mx-auto w-[92%]  max-w-sm sm:w-auto sm:inset-x-auto sm:right-5 flex items-center p-4 space-x-3 text-gray-500 bg-white rounded-lg shadow-2xl border border-gray-200"
+    style="display: none;" role="alert">
+
+    <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path
+                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+        </svg>
+    </div>
+    <div class="ml-3 text-sm font-normal">Status atualizado com sucesso.</div>
+</div>
+
+<div x-data="{ show: false }" @toast-delete-sucesso.window="show = true; setTimeout(() => show = false, 3000)"
+    x-show="show" x-transition:enter="transition ease-out duration-300 transform"
+    x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0"
+    x-transition:leave="transition ease-in duration-200 transform"
+    x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 translate-y-4"
+    class="fixed z-[9999] bottom-4 inset-x-0 mx-auto w-max max-w-[90vw] sm:inset-x-auto sm:bottom-5 sm:right-5 sm:w-auto p-4 flex items-center space-x-3 text-gray-600 bg-white rounded-lg shadow-xl border border-gray-200"
+    style="display: none;" role="alert">
+
+    <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path
+                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+        </svg>
+    </div>
+    <div class="ml-3 text-sm font-medium">Projeto apagado com sucesso.</div>
+</div>
 
 <form id="form-delete" action="" method="POST" class="hidden">
     @csrf
