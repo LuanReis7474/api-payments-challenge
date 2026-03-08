@@ -9,7 +9,6 @@ use App\Models\Supplier;
 
 class PortfolioFlowTest extends TestCase
 {
-
     use RefreshDatabase;
 
     public function test_portfolio_flow_with_session(): void
@@ -18,21 +17,19 @@ class PortfolioFlowTest extends TestCase
 
         $sessionId = session()->getId();
 
-
-
         $this->post(route('projects.store'), [
             'name' => 'Projeto Teste',
-            'type' => '2026-12-31',
+            'type' => 'Comercial',
             'description' => 'ativo',
-            'total_budget' => 15000.00
+            'total_budget' => 'Cem reais'
         ])->assertRedirect(route('projects.index'));
+
 
         $this->post(route('suppliers.store'), [
             'name' => 'Teste fornecedor',
             'cnpj' => '11.111.111/0001-11',
             'phone' => '11999999999'
         ])->assertRedirect(route('suppliers.index'));
-
 
         $project = Project::first();
         $supplier = Supplier::first();
@@ -49,16 +46,14 @@ class PortfolioFlowTest extends TestCase
 
 
         $this->assertDatabaseHas('projects', [
-            'name' => 'Projeto Teste',
+            'name' => 'Nome Completamente Errado',
             'session_id' => $project->session_id
         ]);
-
 
         $this->assertDatabaseHas('suppliers', [
             'name' => 'Teste fornecedor',
             'session_id' => $supplier->session_id
         ]);
-
 
         $this->assertDatabaseHas('expenses', [
             'name' => 'Gasto teste',
