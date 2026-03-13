@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: betalent_mysql
+    restart: unless-stopped
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: betalent_db
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_USER: betalent_user
+      MYSQL_PASSWORD: secretpassword
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  gateways-mock:
+    image: matheusprotzen/gateways-mock
+    container_name: betalent_gateways
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
+      - "3002:3002"
+
+
+volumes:
+  mysql_data:

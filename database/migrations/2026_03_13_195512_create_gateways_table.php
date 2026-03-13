@@ -6,22 +6,25 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-
+    /**
+     * Run the migrations.
+     */
     public function up(): void
     {
-        Schema::create('suppliers', function (Blueprint $table) {
+        Schema::create('gateways', function (Blueprint $table) {
             $table->id();
-            $table->string('session_id')->index();
             $table->string('name');
-            $table->string('phone')->nullable();
-            $table->string('cnpj', 18)->unique()->nullable();
+            $table->boolean('is_active')->default(true);
+            $table->integer('priority')->default(1);
             $table->timestamps();
         });
     }
 
-
+    /**
+     * Reverse the migrations.
+     */
     public function down(): void
     {
-        Schema::dropIfExists('suppliers');
+        Schema::dropIfExists('gateways');
     }
 };
